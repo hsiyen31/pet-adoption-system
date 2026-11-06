@@ -1,0 +1,72 @@
+﻿@model IEnumerable<PetAdoptionSystem.Models.Adoption_Application>
+
+<h1 class="mb-4">領養申請審核</h1>
+
+<table class="table table-bordered table-hover align-middle">
+    <thead class="table-light">
+        <tr>
+            <th>申請人姓名</th>
+            <th>Email</th>
+            <th>電話</th>
+            <th>申請日期</th>
+            <th>寵物編號</th>
+            <th>審核狀態</th>
+            <th>操作</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.aName</td>
+                <td>@item.aMail</td>
+                <td>@item.phoneN</td>
+                <td>@item.ADateTime</td>
+                <td>@item.PId</td>
+
+                <td>
+                    @if (item.Astatus == 0)
+                    {
+                        <span class="badge bg-warning text-dark">審核中</span>
+                    }
+                    else if (item.Astatus == 1)
+                    {
+                        <span class="badge bg-success">已通過</span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-danger">已拒絕</span>
+                    }
+                </td>
+
+                <td>
+                    @if (item.Astatus == 0)
+                    {
+                        <a asp-action="Approve"
+                           asp-route-id="@item.uNo"
+                           class="btn btn-sm btn-success">
+                            通過
+                        </a>
+
+                        <a asp-action="Reject"
+                           asp-route-id="@item.uNo"
+                           class="btn btn-sm btn-outline-danger">
+                            拒絕
+                        </a>
+                    }
+                    else
+                    {
+                        <span class="text-muted">已審核</span>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-controller="Admin"
+   asp-action="Index"
+   class="btn btn-outline-secondary">
+    返回管理員首頁
+</a>

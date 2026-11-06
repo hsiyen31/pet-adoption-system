@@ -1,0 +1,54 @@
+﻿@model IEnumerable<PetAdoptionSystem.Models.Shelter>
+
+<h1 class="mb-4">收容所管理</h1>
+
+<p>
+    <a asp-action="Create"
+       class="btn btn-add">
+        新增收容所
+    </a>
+</p>
+
+<table class="table table-bordered table-hover align-middle">
+
+    <thead class="table-light">
+        <tr>
+            <th>機構名稱</th>
+            <th>地址</th>
+            <th width="180">操作</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>@item.OrgName</td>
+
+                <td>@item.Location</td>
+
+                <td>
+
+                    <a asp-action="Edit"
+                       asp-route-id="@item.SId"
+                       class="btn btn-sm btn-edit">
+                        修改
+                    </a>
+
+                    <a asp-action="Delete"
+                       asp-route-id="@item.SId"
+                       class="btn btn-sm btn-delete"
+                       onclick="return confirm('確定要刪除此收容所嗎？')">
+                        刪除
+                    </a>
+
+                </td>
+
+            </tr>
+        }
+
+    </tbody>
+
+</table>

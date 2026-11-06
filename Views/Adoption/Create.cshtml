@@ -1,0 +1,74 @@
+﻿@model PetAdoptionSystem.Models.Adoption_Application
+
+@{
+    var pet = ViewBag.Pet as PetAdoptionSystem.Models.Pet;
+}
+
+<h1 class="mb-4">填寫領養申請單</h1>
+
+<div class="row">
+
+    <div class="col-md-5 mb-4">
+        <div class="card shadow-sm">
+            @if (pet != null && !string.IsNullOrEmpty(pet.Photo))
+            {
+                <img src="~/images/@pet.Photo"
+                     class="card-img-top"
+                     style="height:300px; object-fit:cover;" />
+            }
+
+            <div class="card-body">
+                <h4 class="card-title">@pet?.PetName</h4>
+
+                <p class="card-text">
+                    <strong>種類：</strong>@pet?.Category<br />
+                    <strong>性別：</strong>@(pet?.Gender == 0 ? "公" : "母")<br />
+                    <strong>年齡：</strong>@pet?.Age 歲
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-7">
+        <div class="card shadow-sm">
+            <div class="card-body">
+
+                <form asp-action="Create" method="post">
+
+                    <input type="hidden"
+                           asp-for="PId"
+                           value="@pet?.PId" />
+
+                    <div class="mb-3">
+                        <label class="form-label">申請人姓名</label>
+                        <input asp-for="aName" class="form-control" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Email</label>
+                        <input asp-for="aMail" class="form-control" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">連絡電話</label>
+                        <input asp-for="phoneN" class="form-control" />
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">
+                        送出申請
+                    </button>
+
+                    <a asp-controller="Pet"
+                       asp-action="Details"
+                       asp-route-id="@pet?.PId"
+                       class="btn btn-outline-secondary ms-2">
+                        返回詳細資料
+                    </a>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+</div>

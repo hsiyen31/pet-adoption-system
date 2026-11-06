@@ -1,0 +1,50 @@
+﻿@model IEnumerable<PetAdoptionSystem.Models.Adoption_Application>
+
+<h1 class="mb-4">我的領養申請紀錄</h1>
+
+<table class="table table-bordered table-hover align-middle">
+    <thead class="table-light">
+        <tr>
+            <th>申請日期</th>
+            <th>寵物編號</th>
+            <th>申請人姓名</th>
+            <th>Email</th>
+            <th>電話</th>
+            <th>審核狀態</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ADateTime</td>
+                <td>@item.PId</td>
+                <td>@item.aName</td>
+                <td>@item.aMail</td>
+                <td>@item.phoneN</td>
+
+                <td>
+                    @if (item.Astatus == 0)
+                    {
+                        <span class="badge bg-warning text-dark">審核中</span>
+                    }
+                    else if (item.Astatus == 1)
+                    {
+                        <span class="badge bg-success">已通過</span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-danger">已拒絕</span>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-controller="Pet"
+   asp-action="Index"
+   class="btn btn-outline-secondary">
+    返回寵物列表
+</a>

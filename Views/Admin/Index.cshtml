@@ -1,0 +1,63 @@
+﻿<h1 class="mb-4">管理員首頁</h1>
+
+<p class="text-muted mb-4">
+    歡迎進入寵物領養系統後台，請選擇要管理的項目。
+</p>
+
+<div class="row">
+
+    <div class="col-md-4 mb-4">
+        <div class="card shadow-sm h-100">
+            <div class="card-body">
+                <h4 class="card-title">收容所管理</h4>
+                <p class="card-text">
+                    新增、查看收容所資料，供寵物資料選擇來源。
+                </p>
+                <a asp-controller="Shelter"
+                   asp-action="Index"
+                   class="btn btn-primary">
+                    進入管理
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+        <div class="card shadow-sm h-100">
+            <div class="card-body">
+                <h4 class="card-title">寵物資料管理</h4>
+                <p class="card-text">
+                    新增、修改、刪除寵物資料與照片。
+                </p>
+                <a asp-controller="AdminPet"
+                   asp-action="Index"
+                   class="btn btn-primary">
+                    進入管理
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+        <div class="card shadow-sm h-100">
+            <div class="card-body">
+                <h4 class="card-title">領養申請審核</h4>
+                <p class="card-text">
+                    查看會員申請單，並進行通過或拒絕審核。
+                </p>
+                <a asp-controller="AdminApplication"
+                   asp-action="Index"
+                   class="btn btn-primary">
+                    進入審核
+                </a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<a asp-controller="Account"
+   asp-action="Logout"
+   class="btn btn-outline-secondary">
+    登出
+</a>

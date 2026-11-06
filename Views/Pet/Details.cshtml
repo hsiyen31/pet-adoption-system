@@ -1,0 +1,61 @@
+﻿@model PetAdoptionSystem.Models.Pet
+
+@{
+    var shelter = ViewBag.Shelter as PetAdoptionSystem.Models.Shelter;
+}
+<h1 class="text-center mb-4">寵物資訊</h1>
+<div class="card shadow-sm mb-4">
+    <div class="row g-0">
+
+        <div class="col-md-5">
+            @if (!string.IsNullOrEmpty(Model.Photo))
+            {
+                <img src="~/images/@Model.Photo"
+                     class="img-fluid rounded-start"
+                     style="width:100%; height:100%; object-fit:cover;" />
+            }
+        </div>
+
+        <div class="col-md-7">
+            <div class="card-body">
+
+                <h1 class="card-title mb-3">
+                    @Model.PetName
+                </h1>
+
+                <p class="card-text">
+                    <strong>種類：</strong>@Model.Category<br />
+                    <strong>性別：</strong>@(Model.Gender == 0 ? "公" : "母")<br />
+                    <strong>年齡：</strong>@Model.Age 歲<br />
+                    <strong>體型：</strong>@Model.Size<br />
+                    <strong>健康紀錄：</strong>@Model.HealthRecord<br />
+                    <strong>目前狀態：</strong>
+                    @(Model.pStatus == 0 ? "待領養" : Model.pStatus == 1 ? "申請中" : "已領養")
+                </p>
+
+                <hr />
+
+                <h5>收容所資訊</h5>
+
+                <p>
+                    <strong>收容所名稱：</strong>@shelter?.OrgName<br />
+                    <strong>收容所地址：</strong>@shelter?.Location
+                </p>
+
+                <a asp-controller="Adoption"
+                   asp-action="Create"
+                   asp-route-id="@Model.PId"
+                   class="btn btn-primary">
+                    填寫申請單
+                </a>
+
+                <a asp-action="Index"
+                   class="btn btn-outline-secondary ms-2">
+                    返回列表
+                </a>
+
+            </div>
+        </div>
+
+    </div>
+</div>

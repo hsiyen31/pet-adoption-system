@@ -1,0 +1,172 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    background-color: #f8f5f0;
+    font-family: "Microsoft JhengHei", sans-serif;
+}
+
+.container {
+    margin-top: 40px;
+}
+
+.navbar {
+    background-color: #fffaf3 !important;
+    box-shadow: 0 2px 10px rgba(0,0,0,.05);
+}
+
+.navbar-brand {
+    font-weight: bold;
+    color: #8b5e3c !important;
+    font-size: 1.5rem;
+}
+
+.nav-link {
+    color: #5f4633 !important;
+    font-weight: 500;
+}
+
+    .nav-link:hover {
+        color: #c47f45 !important;
+    }
+
+h1 {
+    color: #5f4633;
+    font-weight: bold;
+}
+
+.card {
+    border: none;
+    border-radius: 18px;
+    overflow: hidden;
+    transition: .25s;
+}
+
+    .card:hover {
+        transform: translateY(-4px);
+    }
+
+.form-card {
+    background: white;
+    border-radius: 20px;
+    padding: 35px;
+    max-width: 700px;
+    margin: 30px auto;
+    box-shadow: 0 4px 20px rgba(0,0,0,.08);
+}
+
+    .form-card label {
+        font-weight: 600;
+    }
+
+    .form-card .form-control,
+    .form-card .form-select {
+        margin-bottom: 20px;
+    }
+
+.pet-detail-card {
+    background: white;
+    border-radius: 25px;
+    padding: 30px;
+    margin: 30px auto;
+    box-shadow: 0 4px 25px rgba(0,0,0,.08);
+}
+
+.pet-section {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
+}
+
+.btn:focus,
+.btn:active:focus,
+.btn-link.nav-link:focus,
+.form-control:focus,
+.form-check-input:focus {
+    box-shadow: 0 0 0 .1rem white, 0 0 0 .25rem #c47f45;
+}
+
+.btn-add {
+    background-color: #c47f45;
+    color: white;
+    border: none;
+}
+
+    .btn-add:hover {
+        background-color: #a86635;
+        color: white;
+    }
+
+.btn-edit {
+    background-color: #7aa874;
+    color: white;
+    border: none;
+}
+
+    .btn-edit:hover {
+        background-color: #638b5f;
+        color: white;
+    }
+
+.btn-delete {
+    background-color: #c75c5c;
+    color: white;
+    border: none;
+}
+
+    .btn-delete:hover {
+        background-color: #a94444;
+        color: white;
+    }
+
+.btn-primary {
+    background-color: #c47f45 !important;
+    border-color: #c47f45 !important;
+    color: white !important;
+}
+
+    .btn-primary:hover {
+        background-color: #a86635 !important;
+        border-color: #a86635 !important;
+        color: white !important;
+    }
+
+.btn-outline-primary {
+    color: #c47f45 !important;
+    border-color: #c47f45 !important;
+}
+
+    .btn-outline-primary:hover {
+        background-color: #c47f45 !important;
+        border-color: #c47f45 !important;
+        color: white !important;
+    }
+
+.table {
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,.05);
+}
+
+    .table th {
+        background-color: #fffaf3;
+        color: #5f4633;
+    }
+
+.badge {
+    font-size: .9rem;
+}

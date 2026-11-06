@@ -1,0 +1,49 @@
+﻿@model PetAdoptionSystem.Models.User
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+<h2>會員註冊</h2>
+
+@if (ViewBag.Error != null)
+{
+    <p style="color:red">
+        @ViewBag.Error
+    </p>
+}
+
+<form asp-action="Register" method="post">
+
+    <div>
+        <label>姓名</label>
+        <input asp-for="uName" class="form-control" />
+    </div>
+
+    <br />
+
+    <div>
+        <label>Email</label>
+        <input asp-for="uMail" class="form-control" />
+    </div>
+
+    <br />
+
+    <div>
+        <label>密碼</label>
+        <input asp-for="Password" type="password" class="form-control" />
+    </div>
+
+    <br />
+
+    <button type="submit" class="btn btn-primary">
+        註冊
+    </button>
+
+</form>
+
+<br />
+
+<a href="/Account/Login">
+    已有帳號？前往登入
+</a>
